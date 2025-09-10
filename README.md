@@ -37,12 +37,13 @@ postgres://admin:adminpassword@localhost:6404/walletdb?sslmode=disable
 📂 Структура проекта
 ---
 ```bash
-├── cmd/api/         # Точка входа, HTTP-хендлеры
+├── cmd/             
+│   ├── api/         # Точка входа, HTTP-хендлеры
+│   ├── migrations/  # SQL-миграции
 ├── internal/
 │   ├── db/          # Подключение и конфигурация базы данных
 │   ├── store/       # Хранилища (UsersStore, WalletStore и др.)
 │   └── validator/   # Валидация входных данных
-├── migrations/      # SQL-миграции
 └── docker-compose.yml
 ```
 application — основная структура, которая хранит конфиг и сторы.
