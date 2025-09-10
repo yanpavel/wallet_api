@@ -43,7 +43,7 @@ postgres://admin:adminpassword@localhost:6404/walletdb?sslmode=disable
 ├── internal/
 │   ├── db/          # Подключение и конфигурация базы данных
 │   ├── store/       # Хранилища (UsersStore, WalletStore и др.)
-│   └── validator/   # Валидация входных данных
+│   └── env/         # Утилиты для переменных окружения
 └── docker-compose.yml
 ```
 application — основная структура, которая хранит конфиг и сторы.
