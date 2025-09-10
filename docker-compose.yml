@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16.10
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: walletdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "6404:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d walletdb"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build: .
+    container_name: wallet_api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      
+volumes:
+  db-data:
